@@ -286,3 +286,11 @@ virCHDomainRefreshVcpuInfo(virDomainObjPtr vm)
     virCHMonitorCPUInfoFree(info);
     return 0;
 }
+
+pid_t
+virCHDomainGetVcpuPid(virDomainObjPtr vm,
+                     unsigned int vcpuid)
+{
+    virDomainVcpuDefPtr vcpu = virDomainDefGetVcpu(vm->def, vcpuid);
+    return CH_DOMAIN_VCPU_PRIVATE(vcpu)->tid;
+}
