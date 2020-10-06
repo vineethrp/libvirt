@@ -92,6 +92,7 @@ int virCHProcessStart(virCHDriverPtr driver,
         goto cleanup;
     }
 
+    priv->machineName = virCHDomainGetMachineName(vm);
     vm->pid = priv->monitor->pid;
     vm->def->id = vm->pid;
     virDomainObjSetState(vm, VIR_DOMAIN_RUNNING, reason);
