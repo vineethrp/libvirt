@@ -97,7 +97,9 @@ virCHDomainObjBeginJob(virDomainObjPtr obj, enum virCHDomainJob job)
 void
 virCHDomainObjEndJob(virDomainObjPtr obj);
 
-int virCHDomainRefreshVcpuInfo(virDomainObjPtr vm);
+int virCHDomainRefreshThreadInfo(virDomainObjPtr vm);
+
 pid_t virCHDomainGetVcpuPid(virDomainObjPtr vm, unsigned int vcpuid);
+bool virCHDomainHasVcpuPids(virDomainObjPtr vm);
 
 char *virCHDomainGetMachineName(virDomainObjPtr vm);
